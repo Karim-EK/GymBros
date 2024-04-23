@@ -1,0 +1,5 @@
+ci vuole codice "well formed":
+converti <br> in <br/>
+per inline usa :
+    <input(.*?)\>
+    <input$1/>
