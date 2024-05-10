@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="it">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>GymBros-SingIn</title>
+        <link rel="stylesheet" href="style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">    
+        <link rel="icon" type="image/x-icon" href="Resurces/GymBrosLogo.ico ">
+    </head>
+    <body>
+        <header class="container-fluid">
+            <h1>GymBros</h1>
+        </header>
+        <main class="container">
+            <h2>Registrazione</h2>
+            <form action="registration.php" method="post">
+                <fieldset><legend>Informazioni Generali</legend>
+                    <div class="row">
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <label class="form-label">*Email: <input class="form-control" type="email" name="email" autofocus required></label><br>
+                            <label class="form-label">*Password: <input class="form-control" type="password" name="password" required maxlength="20"></label><br>
+                            <label class="form-label">
+                                    *Genere: <select class="form-select" name="gender" required >
+                                    <option value="" disabled selected>Scegli</option>
+                                    <option value="male">Uomo</option>
+                                    <option value="female">Donna</option>
+                                    <option value="other">Altro</option>
+                                    </select>
+                            </label><br>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <label class="form-label">*Nome: <input class="form-control" type="text" name="name" required maxlength="12"></label><br>
+                            <label class="form-label">*Cognome: <input class="form-control" type="text" name="surname" required maxlength="12"></label><br>
+                            <label class="form-label">*Data di nascita: <input class="form-control" type="date" name="birthday" required></label><br>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <label class="form-label mb-3">Nickname: <input class="form-control" type="text" name="nickname" maxlength="12"></label><br>
+                            <label class="form-label me-5">Immagine Profilo:<input class="form-control mt-2" type="file" name="profileImage" accept="image/jpeg, image/png"></label>
+                            <img src="Resurces/blankProfile.png" alt="Profile image" width="100">
+                        </div>
+                    </div>
+                </fieldset><br>
+                <fieldset><legend>Informazioni Dettagliate</legend>
+                    <div class="row">
+                        <p>Potrai compilare i campi facoltativi anche in futuro se lo vorrai</p>
+                        <div class="col-sm-8">
+                            <label class="form-label">Altezza (cm): <input class="form-control" type="number" min="0" max="400" name="height"></label><br>
+                            <label class="form-label">Peso (Kg): <input class="form-control" type="number" min="0" max="200" name="weigh"></label><br>
+                        </div>
+                        <div class="col-sm-4">
+                            <label class="form-label">Quante ore ti alleni a settimana: <input class="form-control" type="number" min="0" max="20" name="trainingHr"></label><br>
+                            <label class="form-label" for="FT">Allenamento preferito:</label><br>
+                                <select class="form-select" name="favTraining" id="FT">
+                                    <option value="strenght">Forza</option>
+                                    <option value="cardio">Cardio</option>
+                                </select>
+                            
+                        </div>
+                            <!-- <a href="https://en.wikipedia.Forg/wiki/Strength_training">Forza</a><input type="checkbox" name="favTraining" value="strenght"></label><br>
+                            <label><a href="https://en.wikipedia.org/wiki/Aerobic_exercise">Cardio</a><input type="checkbox" name="favTraining" value="cardio"></label> -->
+                    </div>
+                </fieldset>
+
+                <fieldset><legend>Composizione Corporea</legend>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <label class="form-label">Data misurazione:<input class="form-control" type="date" name="bodyCompDate"></label><br>
+                        </div>
+                        <div class="col-sm-4">
+                            <label class="form-label">Massa grassa: <input class="form-control" type="text" name="bodyCompFat"></label>
+                            <label class="form-label visually-hidden" for="UF">unità:</label><select id="UF" class="form-select d-inline w-auto" name="unityFat">
+                                <option value="Kg">Kg</option>
+                                <option value="%">%</option>
+                            </select><br>                    
+                        </div>
+                        <div class="col-sm-4">
+                            <label class="form-label">Massa muscolare: <input class="form-control" type="text" name="bodyCompMuscle"></label>
+                            <label class="form-label visually-hidden" for="UM">unità:</label>
+                            <select id="UM" class="form-select d-inline w-auto" name="unityMuscle">
+                                <option value="Kg">Kg</option>
+                                <option value="%">%</option>
+                            </select><br>                    
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="row justify-content-start align-items-center">
+                    <div class="col-12">
+                        <fieldset><legend>Privacy</legend>
+                            <p>In questa sezione potrai decidere il livello di visibilità delle informazioni del tuo account<br>
+                                Aperto: tutti gli utenti possono vedere il contenuto<br>
+                                Follower: solo i tuoi follower possono vedere il contenuto<br>
+                                Chiuso: solo tu puoi visionare il contenuto<br>
+                            </p>
+                            <label class="form-label">Allenamenti postati: <select class="form-select" name="trainingPrivacy">
+                                <option value="open">Aperto</option>
+                                <option value="follower">Follower</option>
+                                <option value="closed">Aperto</option>
+                            </select></label><br>
+                            <label class="form-label">Informazioni dettagliata: <select class="form-select" name="detailsPrivacy">
+                                <option value="open">Aperto</option>
+                                <option value="follower">Follower</option>
+                                <option value="closed">Aperto</option>
+                            </select></label><br>
+                            <label class="form-label">Le mie schede: <select class="form-select" name="workoutPrivacy">
+                                <option value="open">Aperto</option>
+                                <option value="follower">Follower</option>
+                                <option value="closed">Aperto</option>
+                            </select></label><br>
+                        </fieldset>
+                        <div class="text-center">
+                            <input class="btn btn-lg btn-primary" type="submit" value="Registrati">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </main>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <footer>
+            <p>Creato da Karim El Kholy</p>
+        </footer>
+    </body>
+</html>
